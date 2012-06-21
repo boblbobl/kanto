@@ -1,0 +1,23 @@
+{
+  "author": "Lars Hundebøl <lars.hundebol@88loc.com> (http://88loc.com)",
+  "name": "kanto",
+  "description": "An interactive market place engine.",
+  "version": "0.0.1",
+  "homepage": "http://www.kanto.dk",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/propellerhead/kanto.git"
+  },
+  "engines": {
+    "node": "~0.6.8"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "express": "*",
+    "connect-lesscss": "*",
+    "jade": "*",
+    "ejs": "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
