@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Kanto</title>
+  <title><%= title %></title>
   <link href="http://fonts.googleapis.com/css?family=Chicle" rel="stylesheet" type="text/css">
   <link href='application.css' rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,75 +10,147 @@
   
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
-        <h1 id="logo">Kanto</h1>
-        
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        
-        <div class="nav-collapse">
-          <form class="navbar-search pull-left" action="">
-            <input type="text" class="search-query span2" placeholder="Søg og du skal finde...">
-          </form>
-          <ul class="nav pull-right">
-            <li><a href="#">Login</a></li>
-            <li class="divider-vertical"></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om Kanto <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Hjælp</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Nyheder</a></li>
-                <li><a href="#">Betingelser</a></li>
-                <li><a href="#">Copyright</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        
-      </div><!-- /container -->
+
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar pull-right" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      
+      <h1 id="logo">Kanto</h1>
+      
+      <div class="nav-collapse">
+        <form class="navbar-search pull-left" action="">
+          <input id="appendedInputButton" type="text" class="search-query span2" placeholder="Søg og du skal finde...">
+        </form>
+        <ul class="nav pull-right">
+          
+        <% if (is_auth) { %>
+          <li id="auth-loggedin" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <span id="auth-displayname"><%= user.name %></span> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Tilføj...</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Indstillinger</a></li>
+              <li><a id="auth-logoutlink" href="#">Log af</a></li>
+            </ul>
+          </li>
+        <% }else{ %>
+          <li id="auth-loggedout"><a id="auth-loginlink" href="/login">Login med Facebook</a></li>
+        <% } %>
+                    
+          <li class="divider-vertical"></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om Kanto <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Hjælp</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Nyheder</a></li>
+              <li><a href="#">Annoncer</a></li>
+              <li><a href="#">Betingelser</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
     </div><!-- /navbar-inner -->
   </div><!-- /navbar -->
   
   <div class="subnav subnav-fixed">
+            
+    <ul class="nav nav-pills pull-left">
+      <li class="active">
+        <a href="#">Alle</a>
+      </li>
+      <li><a href="#">Foto</a></li>
+      <li><a href="#">Video</a></li>
+      <li><a href="#">Salg</a></li>
+      <li><a href="#">Køb</a></li>
+      <li><a href="#">Indlæg</a></li>
+    </ul>
     
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="#">Nyeste</a>
+      </li>
+      <li><a href="#">Nærmeste</a></li>
+      <li><a href="#">Populære</a></li>
+    </ul>
+
   </div><!-- /subbar -->
   
-  <div class="fb-login-button">Login with Facebook</div>
+  <div id="main" role="main">
+    
+    <ul id="tiles" class="unstyled">
+      <li><img src="/img/example/image_1.jpg" width="200" height="283"><p>1</p></li>
+      <li><img src="/img/example/image_2.jpg" width="200" height="300"><p>2</p></li>
+      <li><img src="/img/example/image_3.jpg" width="200" height="252"><p>3</p></li>
+      <li><img src="/img/example/image_4.jpg" width="200" height="158"><p>4</p></li>
+      <li><img src="/img/example/image_5.jpg" width="200" height="300"><p>5</p></li>
+      <li><img src="/img/example/image_6.jpg" width="200" height="297"><p>6</p></li>
+      <li><img src="/img/example/image_7.jpg" width="200" height="200"><p>7</p></li>
+      <li><img src="/img/example/image_8.jpg" width="200" height="200"><p>8</p></li>
+      <li><img src="/img/example/image_9.jpg" width="200" height="398"><p>9</p></li>
+      <li><img src="/img/example/image_10.jpg" width="200" height="267"><p>10</p></li>
+      <li><img src="/img/example/image_1.jpg" width="200" height="283"><p>11</p></li>
+      <li><img src="/img/example/image_2.jpg" width="200" height="300"><p>12</p></li>
+      <li><img src="/img/example/image_3.jpg" width="200" height="252"><p>13</p></li>
+      <li><img src="/img/example/image_4.jpg" width="200" height="158"><p>14</p></li>
+      <li><img src="/img/example/image_5.jpg" width="200" height="300"><p>15</p></li>
+      <li><img src="/img/example/image_6.jpg" width="200" height="297"><p>16</p></li>
+      <li><img src="/img/example/image_7.jpg" width="200" height="200"><p>17</p></li>
+      <li><img src="/img/example/image_8.jpg" width="200" height="200"><p>18</p></li>
+      <li><img src="/img/example/image_9.jpg" width="200" height="398"><p>19</p></li>
+      <li><img src="/img/example/image_10.jpg" width="200" height="267"><p>20</p></li>
+      <li><img src="/img/example/image_1.jpg" width="200" height="283"><p>21</p></li>
+      <li><img src="/img/example/image_2.jpg" width="200" height="300"><p>22</p></li>
+      <li><img src="/img/example/image_3.jpg" width="200" height="252"><p>23</p></li>
+      <li><img src="/img/example/image_4.jpg" width="200" height="158"><p>24</p></li>
+      <li><img src="/img/example/image_5.jpg" width="200" height="300"><p>25</p></li>
+      <li><img src="/img/example/image_6.jpg" width="200" height="297"><p>26</p></li>
+      <li><img src="/img/example/image_7.jpg" width="200" height="200"><p>27</p></li>
+      <li><img src="/img/example/image_8.jpg" width="200" height="200"><p>28</p></li>
+      <li><img src="/img/example/image_9.jpg" width="200" height="398"><p>29</p></li>
+      <li><img src="/img/example/image_10.jpg" width="200" height="267"><p>30</p></li>
+    </ul>
+
+  </div>
   
   <div id="fb-root"></div>
-  
-  
+    
   <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/jquery.wookmark.js"></script>
   <script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
   <script type="text/javascript" src="/js/bootstrap-collapse.js"></script>
-  <script>
-  
-    //App Secret:	382e168f18b0fb4321f3d77b7d059eab
-  
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '369614666437929', // App ID
-        channelUrl : 'http://localhost:3000/channel.html', // Channel File
-        status     : true, // check login status
-        cookie     : true, // enable cookies to allow the server to access the session
-        xfbml      : true  // parse XFBML
-      });
-    };
-    // Load the SDK Asynchronously
-    (function(d){
-       var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement('script'); js.id = id; js.async = true;
-       js.src = "//connect.facebook.net/en_US/all.js";
-       ref.parentNode.insertBefore(js, ref);
-     }(document));
-  </script>
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
 
-  
+  <script type="text/javascript">
+    $(document).ready(new function() {
+      // Prepare layout options.
+      var options = {
+        autoResize: true, // This will auto-update the layout when the browser window is resized.
+        container: $('#main'), // Optional, used for some extra CSS styling
+        offset: 5, // Optional, the distance between grid items
+        itemWidth: 210 // Optional, the width of a grid item
+      };
+      
+      // Get a reference to your grid items.
+      var handler = $('#tiles li');
+      
+      // Call the layout function.
+      handler.wookmark(options);
+      
+      // Capture clicks on grid items.
+      handler.click(function(){
+        // Randomize the height of the clicked item.
+        var newHeight = $('img', this).height() + Math.round(Math.random()*300+30);
+        $(this).css('height', newHeight+'px');
+        
+        // Update the layout.
+        handler.wookmark();
+      });
+    });
+  </script>
 </body>
 </html>

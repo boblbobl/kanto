@@ -15,8 +15,8 @@
     "coffee-script": "*",
     "express": "*",
     "connect-lesscss": "*",
-    "jade": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "facebook-js": "*"
   },
   "devDependencies": {},
   "optionalDependencies": {}

@@ -8,22 +8,12 @@ input.search-query {
   width: 200px;
 }
 
-@media (max-width: 480px) { 
-  input.search-query {
-    width: 10px;
-  }
+.pull-left {
+  margin-left: 20px !important;
 }
 
-@media (max-width: 767px) { 
-  input.search-query {
-    width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {  
-  input.search-query {
-    width: 300px;
-  }
+.pull-right {
+  margin-right: 20px !important;
 }
 
 
@@ -34,7 +24,7 @@ h1#logo {
   text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
     
   position: absolute;
-  top: 5px;
+  top: 2px;
   left: 50%;
   margin-left: -50px;
 }
@@ -58,6 +48,16 @@ h1#logo {
           border-radius: 4px;
 }
 
+.subnav ul {
+  margin-top: 3px;
+}
+
+.subnav .nav-pills > li > a {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 15px;
+}
+
 .subnav-fixed {
   position: fixed;
   top: 40px;
@@ -73,4 +73,22 @@ h1#logo {
      -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
+}
+
+#main {
+  width: 100%;
+  position: absolute;
+  top: 100px;
+}
+
+#tiles li {
+  width: 200px;
+  background-color: white;
+  border: 1px solid #DEDEDE;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  display: none;
+  cursor: pointer;
+  padding: 4px;
 }
