@@ -2,146 +2,191 @@
 <html lang="en">
 <head>
   <title><%= title %></title>
-  <link href="http://fonts.googleapis.com/css?family=Chicle" rel="stylesheet" type="text/css">
   <link href='application.css' rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
+      <div class="container-fluid">
 
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <a class="btn btn-navbar pull-right" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
       
-      <h1 id="logo">Kanto</h1>
-      
-      <div class="nav-collapse">
-        <form class="navbar-search pull-left" action="">
-          <input id="appendedInputButton" type="text" class="search-query span2" placeholder="Søg og du skal finde...">
+        <form class="navbar-search pull-left">
+          <input type="text" class="search-query" placeholder="Søg">
         </form>
-        <ul class="nav pull-right">
+      
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+        
+          <ul class="nav pull-right">
           
-        <% if (is_auth) { %>
-          <li id="auth-loggedin" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <span id="auth-displayname"><%= user.name %></span> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Tilføj...</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Indstillinger</a></li>
-              <li><a id="auth-logoutlink" href="#">Log af</a></li>
-            </ul>
-          </li>
-        <% }else{ %>
-          <li id="auth-loggedout"><a id="auth-loginlink" href="/login">Login med Facebook</a></li>
-        <% } %>
+          <% if (is_auth) { %>
+            <li id="auth-loggedin" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, <span id="auth-displayname"><%= user.name %></span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Tilføj...</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Indstillinger</a></li>
+                <li><a id="auth-logoutlink" href="#">Log af</a></li>
+              </ul>
+            </li>
+          <% }else{ %>
+            <li id="auth-loggedout"><a id="auth-loginlink" href="/login">Login med Facebook</a></li>
+          <% } %>
                     
-          <li class="divider-vertical"></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om Kanto <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Hjælp</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Nyheder</a></li>
-              <li><a href="#">Annoncer</a></li>
-              <li><a href="#">Betingelser</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om Kanto <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Hjælp</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Nyheder</a></li>
+                <li><a href="#">Annoncer</a></li>
+                <li><a href="#">Betingelser</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+      </div><!-- /container -->
     </div><!-- /navbar-inner -->
   </div><!-- /navbar -->
   
-  <div class="subnav subnav-fixed">
-            
-    <ul class="nav nav-pills pull-left">
-      <li class="active">
-        <a href="#">Alle</a>
-      </li>
-      <li><a href="#">Foto</a></li>
-      <li><a href="#">Video</a></li>
-      <li><a href="#">Salg</a></li>
-      <li><a href="#">Køb</a></li>
-      <li><a href="#">Indlæg</a></li>
-    </ul>
+  <div class="subnav subnav-fixed visible-desktop">
+    <div class="container-fluid">
+      <ul class="nav nav-pills pull-left">
+        <li class="active">
+          <a href="#">Alle</a>
+        </li>
+        <li><a href="#">Foto</a></li>
+        <li><a href="#">Video</a></li>
+        <li><a href="#">Salg</a></li>
+        <li><a href="#">Køb</a></li>
+        <li><a href="#">Indlæg</a></li>
+      </ul>
     
-    <ul class="nav nav-pills pull-right">
-      <li class="active">
-        <a href="#">Nyeste</a>
-      </li>
-      <li><a href="#">Nærmeste</a></li>
-      <li><a href="#">Populære</a></li>
-    </ul>
+      <ul class="nav nav-pills pull-right">
+        <li class="active">
+          <a href="#">Nyeste</a>
+        </li>
+        <li><a href="#">Nærmeste</a></li>
+        <li><a href="#">Populære</a></li>
+      </ul>
+    </div>
 
   </div><!-- /subbar -->
   
   <div id="main" role="main">
     
     <ul id="tiles" class="unstyled">
-      <li><img src="/img/example/image_1.jpg" width="200" height="283"><p>1</p></li>
-      <li><img src="/img/example/image_2.jpg" width="200" height="300"><p>2</p></li>
-      <li><img src="/img/example/image_3.jpg" width="200" height="252"><p>3</p></li>
-      <li><img src="/img/example/image_4.jpg" width="200" height="158"><p>4</p></li>
-      <li><img src="/img/example/image_5.jpg" width="200" height="300"><p>5</p></li>
-      <li><img src="/img/example/image_6.jpg" width="200" height="297"><p>6</p></li>
-      <li><img src="/img/example/image_7.jpg" width="200" height="200"><p>7</p></li>
-      <li><img src="/img/example/image_8.jpg" width="200" height="200"><p>8</p></li>
-      <li><img src="/img/example/image_9.jpg" width="200" height="398"><p>9</p></li>
-      <li><img src="/img/example/image_10.jpg" width="200" height="267"><p>10</p></li>
-      <li><img src="/img/example/image_1.jpg" width="200" height="283"><p>11</p></li>
-      <li><img src="/img/example/image_2.jpg" width="200" height="300"><p>12</p></li>
-      <li><img src="/img/example/image_3.jpg" width="200" height="252"><p>13</p></li>
-      <li><img src="/img/example/image_4.jpg" width="200" height="158"><p>14</p></li>
-      <li><img src="/img/example/image_5.jpg" width="200" height="300"><p>15</p></li>
-      <li><img src="/img/example/image_6.jpg" width="200" height="297"><p>16</p></li>
-      <li><img src="/img/example/image_7.jpg" width="200" height="200"><p>17</p></li>
-      <li><img src="/img/example/image_8.jpg" width="200" height="200"><p>18</p></li>
-      <li><img src="/img/example/image_9.jpg" width="200" height="398"><p>19</p></li>
-      <li><img src="/img/example/image_10.jpg" width="200" height="267"><p>20</p></li>
-      <li><img src="/img/example/image_1.jpg" width="200" height="283"><p>21</p></li>
-      <li><img src="/img/example/image_2.jpg" width="200" height="300"><p>22</p></li>
-      <li><img src="/img/example/image_3.jpg" width="200" height="252"><p>23</p></li>
-      <li><img src="/img/example/image_4.jpg" width="200" height="158"><p>24</p></li>
-      <li><img src="/img/example/image_5.jpg" width="200" height="300"><p>25</p></li>
-      <li><img src="/img/example/image_6.jpg" width="200" height="297"><p>26</p></li>
-      <li><img src="/img/example/image_7.jpg" width="200" height="200"><p>27</p></li>
-      <li><img src="/img/example/image_8.jpg" width="200" height="200"><p>28</p></li>
-      <li><img src="/img/example/image_9.jpg" width="200" height="398"><p>29</p></li>
-      <li><img src="/img/example/image_10.jpg" width="200" height="267"><p>30</p></li>
     </ul>
-
+    
+    <div class="container">
+      <div class="gridLoadingWrapper">
+        <hr>
+        <div class="gridLoading">
+          <span class="gridFooterLogoIcon"></span>
+          <span class="gridFooterSpinner"></span>
+        </div>
+      </div>
+    </div>
+    
   </div>
   
   <div id="fb-root"></div>
+  
+  <script type="text/template" id="tile">
+    <li>
+      <div class="price">{{ formattedPrice }}</div>
+      <img src="/img/baboom/{{ imageUrl }}" style="width: 236px" />
+      <div class="desc">
+        <p class="muted">{{ source.title }}</p>
+      </div>
+      <div class="meta">
+        <div class="pull-left">
+          <i class="icon-map-marker"></i> <span>{{ source.region }}</span>
+        </div>
+        {{ #hasComments }}
+        <div class="pull-right">
+          <i class="icon-comment"></i> <span>{{ source.comments }}</span>
+        </div>
+        {{ /hasComments }}
+        {{ #hasFavorites }}
+        <div class="pull-right">
+          <i class="icon-star"></i> <span>{{ source.favorites }}</span>
+        </div>
+        {{ /hasFavorites }}
+      </div>
+    </li>
+  </script>
     
   <script type="text/javascript" src="/js/jquery.js"></script>
   <script type="text/javascript" src="/js/jquery.wookmark.js"></script>
+  <script type="text/javascript" src="/js/jquery.imagesloaded.js"></script>
+  
   <script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
   <script type="text/javascript" src="/js/bootstrap-collapse.js"></script>
+  
+  <script type="text/javascript" src="/js/elastic.js"></script>
+  <script type="text/javascript" src="/js/elastic-jquery-client.js"></script>
+  
+  <script type="text/javascript" src="/js/mustache.js"></script>
+
   <script src="http://connect.facebook.net/en_US/all.js"></script>
 
   <script type="text/javascript">
-    $(document).ready(new function() {
-      // Prepare layout options.
-      var options = {
-        autoResize: true, // This will auto-update the layout when the browser window is resized.
-        container: $('#main'), // Optional, used for some extra CSS styling
-        offset: 5, // Optional, the distance between grid items
-        itemWidth: 210 // Optional, the width of a grid item
-      };
+    var loading = true;
+    var itemPosition = 0;
+    var itemCount = 50;
+    
+    function resultsCallBack(results) { 
+      var hits = results.hits.hits;
+      var tileTmpl = $('#tile').html();
       
+      for (i = 0; i < hits.length; i++) {
+                
+        var view = {
+          source : hits[i]._source,
+          imageUrl : hits[i]._source.images[0].path,
+          formattedPrice : hits[i]._source.price != 'Byd' ? "DKK " + hits[i]._source.price + ",00" : "BYD",
+          hasComments: hits[i]._source.comments > 0 ? true : false,
+          hasFavorites: hits[i]._source.favorites > 0 ? true : false
+        } 
+        
+        var tile = Mustache.render(tileTmpl, view);
+        
+        $("#tiles").append(tile);
+      }
+      
+      //updateWookmark();
+      $('#tiles').imagesLoaded(function() {
+        updateWookmark();
+        loading = false;
+        itemPosition = itemPosition + itemCount;
+      });
+    }
+    
+    function updateWookmark() {
       // Get a reference to your grid items.
       var handler = $('#tiles li');
       
+      // Prepare layout options
+      var options = {
+        autoResize: true, // This will auto-update the layout when the browser window is resized.
+        container: $('#tiles'), // Optional, used for some extra CSS styling
+        offset: 15, // Optional, the distance between grid items
+      };
+
       // Call the layout function.
       handler.wookmark(options);
       
       // Capture clicks on grid items.
+      /*
       handler.click(function(){
         // Randomize the height of the clicked item.
         var newHeight = $('img', this).height() + Math.round(Math.random()*300+30);
@@ -149,6 +194,36 @@
         
         // Update the layout.
         handler.wookmark();
+      });
+      */
+    }
+    
+    function resultIterator(q, from, step) {
+      request.from(from).size(step).query(ejs.QueryStringQuery(q || '*')).doSearch(resultsCallBack);
+    }
+    
+    $(document).ready(function() {
+      // Set elastic search client
+      ejs.client = ejs.jQueryClient('http://localhost:9200');
+      
+      // Set elastic search requests object
+      request = ejs.Request({indices: 'kanto_test', types: 'items'});
+      
+      // Do a wild card search for the latest 100 items
+      resultIterator('*', itemPosition, itemCount);
+      
+      $(window).scroll(function(){
+        
+        var bottom_of_object = $(".gridLoadingWrapper").position().top + $(".gridLoadingWrapper").outerHeight() + 50;
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
+        
+        if (bottom_of_object < bottom_of_window) {
+          if (loading == false) {
+            loading = true;
+            resultIterator('*', itemPosition, itemCount);
+          }
+        }
+        
       });
     });
   </script>

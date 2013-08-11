@@ -6,7 +6,8 @@ less    = require 'connect-lesscss'
 fb      = require 'facebook-js'
 globals = require ('./config')
 
-app = express.createServer()
+app = express()
+port = 3000
 
 app.configure ->
   app.use express.bodyParser()
@@ -52,5 +53,5 @@ app.get '/auth', (req, res) ->
       }
       res.redirect '/'
   
-app.listen(3000)
-console.log "Server is listening"
+app.listen(port)
+console.log "Server is listening on port " + port
